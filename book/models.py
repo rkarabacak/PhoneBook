@@ -13,6 +13,9 @@ class Contacts(models.Model):
     phoneNumber1 = PhoneField(blank=False, unique=True)
     phoneNumber2 = PhoneField(blank=True, unique=True)
     address = models.TextField(max_length=254)
+
+    def __str__(self):
+        return self.firstName
         
 
 

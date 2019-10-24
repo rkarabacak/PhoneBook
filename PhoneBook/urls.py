@@ -23,4 +23,5 @@ urlpatterns = [
     re_path(r'^$', login_view, name='login'),
     path('contacts/', include('book.urls')),
     path('accounts/', include('accounts.urls')),
+    path('calllogs/', include('Call_Logs.urls')),
 ]

@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',    
-    'book',    
+    'book',
+    'Call_Logs',    
     # external apps
     'crispy_forms',
     'phone_field',
