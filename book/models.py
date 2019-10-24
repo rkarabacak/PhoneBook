@@ -1,17 +1,27 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
-from phonenumber_field.modelfields import PhoneNumberField
+from phone_field import PhoneField
 
 # Create your models here.
 
 class Contacts(models.Model):
-    name = models.CharField(max_length=200)
-    phoneNumber1 = PhoneNumberField(blank=False)
-    phoneNumber2 = PhoneNumberField(blank=True)
-    address = models.TextField()
+    firstName = models.CharField(max_length=50, blank=False)
+    lastName = models.CharField(max_length=50, blank=False)
+    companyName = models.CharField(max_length=50)
+    email = models.EmailField(max_length=50, unique=True)
+    phoneNumber1 = PhoneField(blank=False, unique=True)
+    phoneNumber2 = PhoneField(blank=True, unique=True)
+    address = models.TextField(max_length=254)
         
 
+
+    # def save(self, *args, **kwargs): # ilk harfı buyuten def
+    #         for field_name in ['title', 'price', ... ]:
+    #             val = getattr(self, field_name, False)
+    #             if val:
+    #                 setattr(self, field_name, val.capitalize())
+    #         super(Product, self).save(*args, **kwargs)
    
 
     # class Caller(models.Model):

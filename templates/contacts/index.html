@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load  crispy_forms_tags %}
+
+    {% block body %}    
+         <div id="license-index" class="container-fluid pt-5 px-5">
+             <div class="row mb-3 ml-2" >
+<!--                 <i class="fas fa-plus pt-2"></i>                 -->
+                 <!-- <input type="button" class="btn btn-outline-primary btn-k2m" onclick="location.href={% url 'book:create' %}" value="Yeni Kayıt"> -->
+             </div>
+          <div class="table-responsive-sm">
+            <table id="example" class="table table-hover table-fixed" style="width:100%">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Adı</th>
+                        <th>Soyadı</th>
+                        <th>Firma Adı</th>
+                        <th>E-Posta</th>
+                        <th>Telefon Numarası 1</th>
+                        <th>Telefon Numarası 2</th>
+                        <th>Adres</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                {% for contact in contacts %}
+                    <tr >                        
+                        <td >{{ contact.firstName }}</td>
+                        <td>{{ contact.lastName }}</td>
+                        <td>{{ contact.companyName }}</td>
+                        <td>{{ contact.email }}</td>
+                        <td>{{ contact.phoneNumber1 }}</td>
+                        <td>{{ contact.phoneNumber2}}</td>
+                        <td>{{ contact.address}}</td>                      
+                    </tr>
+                 {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+    {% endblock %}

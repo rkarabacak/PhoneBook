@@ -1,0 +1,38 @@
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Firma Rehberi</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       {% if request.user.is_authenticated %}
+        <ul class="navbar-nav mr-auto">
+             <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="ServicesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rehber</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'book:index' %}">Rehber</a>
+                  <a class="dropdown-item" href="{% url 'book:create' %}">Ekle</a>                  
+               </div>
+        
+            </li>
+            <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="TeknikDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Çağrı Geçmişi</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">                  
+               </div>
+            </li>
+            <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rapor</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">                  
+               </div>
+            </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+          {% if request.user.is_authenticated %}          
+          <lebel class="text-k2m text-uppercase">{{request.user.get_full_name}}</lebel>
+          {% endif %}
+      </div>
+       <lu class="navbar-nav">
+            <li class="nav-item active"> <a class="nav-link" href="{% url 'accounts:logout' %}">Çıkış <span class="sr-only">(current)</span></a> </li>
+       </lu>        
+       {% endif %} 
+      </div>
+   </div>
+</nav>

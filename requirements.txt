@@ -3,5 +3,5 @@ django-crispy-forms
 Pillow
 gunicorn
 psycopg2
-django-phonenumber-field
+django-phone-field
 phonenumbers
