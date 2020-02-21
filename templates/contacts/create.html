@@ -1,23 +1,79 @@
 {% extends 'base.html' %}
 {%  load  crispy_forms_tags  %}
 
-    {% block body %}
+{% block body %}
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mx-auto">
-                     <div class="pb-2 my-4 border-bottom">
-                        <h2 class="mx-5" >Yeni Kayıt Ekle</h2>
-                     </div>
-                    <Form method="POST" class="uniForm" enctype="multipart/form-data">
-                       {% csrf_token %}
-                        {{form|crispy }}
-                        <input type="submit" class="btn btn-outline-primary btn-k2m mt-5 mx-3" value="Kaydet">
-                        <!-- <input type="button" class="btn btn-outline-danger btn-k2m mt-5" onclick="location.href='{% url 'book:index' %}'" value="İptal"> -->
-                    </form>
-                </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="pb-2 my-4 border-bottom">
+                <h2 class="mx-5">Yeni Müşteri Ekle</h2>
             </div>
-
+            <Form method="POST" class="uniForm" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form|crispy }}
+                <input type="submit" class="btn btn-outline-primary btn-k2m mt-5 mx-3" value="Kaydet">                
+            </form>
         </div>
+    </div>
+</div>
+{{data}}
+{{getNumber}}
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="pb-2 my-4 border-bottom">
+                <h2 class="mx-5">Yeni Müşteri Ekle</h2>
+            </div>
+            <form method="POST" class="uniForm" enctype="multipart/form-data">{% csrf_token %}
+                
+                <div id="div_id_firstName" class="form-group"> <label for="id_firstName" class=" requiredField">
+                        Adı<span class="asteriskField">*</span> </label>
+                    <div class=""> <input type="text" name="firstName" class="textinput textInput form-control"
+                            required="" id="id_firstName"> </div>
+                </div>
+                <div id="div_id_lastName" class="form-group"> <label for="id_lastName" class=" requiredField">
+                        Soyadı<span class="asteriskField">*</span> </label>
+                    <div class=""> <input type="text" name="lastName" class="textinput textInput form-control"
+                            required="" id="id_lastName"> </div>
+                </div>
+                <div id="div_id_companyName" class="form-group"> <label for="id_companyName" class="">
+                        Firma Adı
+                    </label>
+                    <div class=""> <input type="text" name="companyName" class="textinput textInput form-control"
+                            id="id_companyName"> </div>
+                </div>
+                <div id="div_id_email" class="form-group"> <label for="id_email" class="">
+                        E-Posta
+                    </label>
+                    <div class=""> <input type="email" name="email" class="emailinput form-control" id="id_email">
+                    </div>
+                </div>
+                <div id="div_id_phoneNumber1" class="form-group">
+                    <label for="id_phoneNumber1" class=" requiredField">
+                        1. Telefon Numarası<span class="asteriskField">*</span>
+                    </label>
+                    <div class="">
+                         <input type="text" name="phoneNumber1" value="{{data}}" class="textinput textInput form-control"
+                            required="" id="id_phoneNumber1">
+                    </div>
+                </div>
+                <div id="div_id_phoneNumber2" class="form-group"> <label for="id_phoneNumber2" class="">
+                        2. Telefon Numarası
+                    </label>
+                    <div class=""> <input type="text" name="phoneNumber2" class="textinput textInput form-control"
+                            id="id_phoneNumber2"> </div>
+                </div>
+                <div id="div_id_address" class="form-group"> <label for="id_address" class="">
+                        Adres:
+                    </label>
+                    <div class=""> <input type="text" name="address" class="textinput textInput form-control"
+                            id="id_address"> </div>
+                </div>
+                <input type="submit" class="btn btn-outline-primary btn-k2m mt-5 mx-3" value="Kaydet">                
+            </form>
+        </div>
+    </div>
+</div> -->
 
-    {% endblock %}
+{% endblock %}

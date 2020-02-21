@@ -16,3 +16,18 @@ class CallLogsForm(forms.ModelForm):
             'note',
             'id_contacts',            
         ]
+
+class SCallLogsForm(forms.ModelForm):
+    
+    fromNumber = forms.CharField(label='Arayan Numara', initial='Arayan numara burası', disabled=True)  
+      
+    class Meta:
+        model = call_logs
+        fields = [
+            # 'callTime',
+            # 'fromNumber',           
+            # 'toUser',
+            'note',
+            # 'id_contacts',            
+        ]
+    

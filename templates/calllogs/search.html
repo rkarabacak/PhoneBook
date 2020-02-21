@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load  crispy_forms_tags %}
+
+
+{% block body %}  
+
+<div class="container">
+    <form method="POST" class="uniForm" enctype="multipart/form-data">{% csrf_token %} 
+        <div class="card border-primary">        
+            <div class="card-header d-flex justify-content-between">
+              <h5 name="fromNumber" maxlength="16" required="" id="id_fromNumber">  
+                <b>Arayan Numara: </b>{{data}}
+                    <span class="asteriskField">*</span>
+                    <span class="mb-2 badge badge-dark badge-pill">{{number.id}}</span>                                      
+                    
+                   <p></p> 
+                <div id="div_id_id_contacts" class="form-group"> 
+                    <label for="id_id_contacts" class=" requiredField">
+                        <b>Kayıtlı Firma || Kişi :</b><span class="asteriskField">*</span> 
+                    </label> 
+                    <div class=""> 
+                        <p name="id_contacts" required="" id="id_id_contacts">{{company}}</p>
+                    </div> 
+                </div>
+                </h5>
+                <h5 class="mb-1"><b>Cevaplayan Kullanıcı:</b> {{request.user.get_full_name}}
+                    <p class="mb-2"></p>
+                    <p class="mb-2"><b>Görüşme Tarihi:</b> {{rtime}}</p>
+                </h5>                     
+            </div>       
+            <div class="card-body">
+            <h5 class="card-title"><b>Not:</b></h5>
+            <p class="card-text">{{request.note}}</p>
+                <div id="div_id_note" class="form-group"> 
+                    <label for="id_note" class=" requiredField">Not<span class="asteriskField">*</span> </label> 
+                    <div class=""> 
+                        <textarea name="note" cols="40" rows="10" class="textarea form-control" required="" id="id_note"></textarea> 
+                    </div>
+                </div>            
+            </div>
+        </div>
+        <input type="submit" class="btn btn-outline-primary btn-k2m mt-5 mx-3" value="Kaydet">
+    </form>
+</div>
+
+
+<!-- <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                 <div class="pb-2 my-4 border-bottom">
+                    <h2 class="mx-5" >Yeni Çağrı Kaydı Oluştur</h2>
+                 </div>
+                <Form method="POST" class="uniForm" enctype="multipart/form-data">
+                   {% csrf_token %}    
+                   {{form|crispy }}              
+                                   
+                    <input type="submit" class="btn btn-outline-primary btn-k2m mt-5 mx-3" value="Kaydet">                
+                </form>
+            </div>
+        </div>
+    </div>    -->
+         
+<hr>
+  
+<!-- Cards -->
+{% for number in caller_number %}  
+<div class="container mb-5">
+    <div class="card border-primary">        
+        <div class="card-header d-flex justify-content-between">
+            <h5 class="mb-1"><b>Arayan Numara:</b> {{number.fromNumber}}
+                 <span class="mb-2 badge badge-dark badge-pill">{{number.id}}</span>
+                 <p><b>Kayıtlı Firma || Kişi :</b>   {{company}} </p>                
+            </h5>
+            <h5 class="mb-1"><b>Cevaplayan Kullanıcı:</b> {{number.toUser.get_full_name}}
+                <p class="mb-2"></p>
+                <p class="mb-2"><b>Görüşme Tarihi:</b> {{number.callTime}}</p>
+            </h5>                     
+        </div>       
+        <div class="card-body">
+          <h5 class="card-title"><b>Not:</b></h5>
+          <p class="card-text">{{number.note}}</p>
+          
+        </div>
+    </div>
+</div>
+{% endfor %}  
+
+
+{% endblock body %}

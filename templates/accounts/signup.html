@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load  crispy_forms_tags %}
+
+{% block body %}
+  
+<div class="container ">
+    <div class="row justify-content-md-center">
+        <div class="col-md-6">      
+            <h2>Kullanıcı Ekle</h2>
+            <form method="post">     
+                {{ form|crispy }}
+                <button class="btn btn-black" type="submit">Kaydet</button>
+            </form>
+        </div>  
+    </div>  
+</div>
+{% endblock %}

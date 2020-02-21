@@ -12,22 +12,24 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>#</th>
+                        <th>Kayıtlı Firma || Kişi</th> 
                         <th>Çağrı Zamanı</th>
                         <th>Arayan Numara</th>
                         <th>Cevaplayan Kullanıcı</th>                        
                         <th>Not</th>
-                        <th>Kayıtlı Firma</th>                        
+                                               
                     </tr>
                 </thead>
                 <tbody>
                 {% for calllog in calllogs %}
                     <tr >                        
                         <td >{{ calllog.id }}</td>
+                        <td><a href="{% url 'calllogs:detail' pk=calllog.id %}">{{ calllog.id_contacts}}</a></td>
                         <td>{{ calllog.callTime }}</td>
                         <td>{{ calllog.fromNumber }}</td>
-                        <td>{{ calllog.toUser }}</td>                        
+                        <td>{{ calllog.toUser.get_full_name }}</td>                        
                         <td>{{ calllog.note}}</td>
-                        <td>{{ calllog.id_contacts}}</td>                      
+                                              
                     </tr>
                  {% endfor %}
                 </tbody>

@@ -23,7 +23,7 @@
                 <tbody>
                 {% for contact in contacts %}
                     <tr >                        
-                        <td >{{ contact.firstName }}</td>
+                        <td ><a href="{% url 'book:update' pk=contact.id %}">{{ contact.firstName }}</a></td>
                         <td>{{ contact.lastName }}</td>
                         <td>{{ contact.companyName }}</td>
                         <td>{{ contact.email }}</td>
@@ -35,5 +35,7 @@
                 </tbody>
             </table>
           </div>
-        </div>
+        </div>      
+        
+           
     {% endblock %}

@@ -6,16 +6,23 @@ from phone_field import PhoneField
 # Create your models here.
 
 class Contacts(models.Model):
-    firstName = models.CharField(max_length=50, blank=False)
-    lastName = models.CharField(max_length=50, blank=False)
-    companyName = models.CharField(max_length=50)
-    email = models.EmailField(max_length=50, unique=True)
-    phoneNumber1 = PhoneField(blank=False, unique=True)
-    phoneNumber2 = PhoneField(blank=True, unique=True)
-    address = models.TextField(max_length=254)
+    firstName = models.CharField(max_length=50)
+    lastName = models.CharField(max_length=50)
+    companyName = models.CharField(max_length=50, blank=True, null=True)
+    email = models.EmailField(max_length=50, null=True, blank=True)
+    phoneNumber1 = PhoneField(unique=True)
+    phoneNumber2 = PhoneField(null=True, blank=True)
+    address = models.TextField(max_length=254, blank=True, null=True)
 
+    # def __str__(self):
+    #     return self.firstName
+           
     def __str__(self):
-        return self.firstName
+        if self.companyName:
+            return """{} || {} {}""".format(self.companyName, self.firstName, self.lastName)
+        else:  
+           return """{} {}""".format(self.firstName, self.lastName)
+        
         
 
 

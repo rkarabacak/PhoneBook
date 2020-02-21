@@ -10,20 +10,24 @@
         <ul class="navbar-nav mr-auto">
              <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="ServicesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rehber</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{% url 'book:index' %}">Rehber</a>
-                  <a class="dropdown-item" href="{% url 'book:create' %}">Ekle</a>                  
-               </div>
-        
+                  <a class="dropdown-item" href="{% url 'book:index' %}">Rehberi Görüntüle</a>
+                  <a class="dropdown-item" href="{% url 'book:create' %}">Yeni Kayıt Oluştur</a>                  
+               </div>        
             </li>
             <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="TeknikDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Çağrı Geçmişi</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{% url 'calllogs:index' %}">Çağrı Geçmişi</a>                  
+                  <a class="dropdown-item" href="{% url 'calllogs:index' %}">Çağrı Geçmişi</a>
+                                                   
                </div>
             </li>
-            <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rapor</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">                  
+            {% if request.user.is_superuser %} 
+            <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'accounts:signup' %}">Kullanıcı Ekle</a>
+                    <a class="dropdown-item" href="{% url 'calllogs:create' %}">Yeni Çağrı Kaydı</a>           
                </div>
             </li>
+            {% endif %}
         </ul>
         <div class="form-inline my-2 my-lg-0">
           {% if request.user.is_authenticated %}          

@@ -5,7 +5,34 @@
     <h3>calllogs detail</h3>
     <p>Çağrı Numarası: {{callid.id}}</p>
     <p>Çağrı Zamanı: {{callid.callTime}}</p>
-    <p>{{callid.fromNumber}}</p>
-    <p>{{callid.toUser}}</p>
-    <p></p>
+    <p>Arayan Numara: {{callid.fromNumber}}</p>
+    <p>Kaydeden Kullanıcı Adı: {{callid.toUser}} | {{callid.toUser.get_full_name}}</p>
+    <p>Not: {{callid.note}}</p>
+    <p>Firma: {{callid.id_contacts}}</p>
+    
+
     {% endblock %}
+    
+
+
+    <!-- {%  for number in caller_number %}  
+    <div class="container">
+        <div class="card border-primary">        
+            <div class="card-header d-flex justify-content-between">
+                <h5 class="mb-1"><b>Arayan Numara:</b> {{number.fromNumber}}
+                    <span class="mb-2 badge badge-dark badge-pill">{{number.id}}</span>
+                    <p>{{company}}</p>
+                </h5>
+                <h5 class="mb-1"><b>Cevaplayan Kullanıcı:</b> {{number.toUser.get_full_name}}
+                    <p class="mb-2"></p>
+                    <p class="mb-2"><b>Görüşme Tarihi:</b> {{number.callTime}}</p>
+                </h5>                     
+            </div>       
+            <div class="card-body">
+            <h5 class="card-title"><b>Not:</b></h5>
+            <p class="card-text">{{number.note}}</p>
+            
+            </div>
+        </div>
+    </div>
+{% endfor %}   -->

@@ -301,3 +301,16 @@ margin-left: 20px;
 
 }
 
+.footer-bottom {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    color:#1DB2FF;
+    background-color: #363535 !important;
+    border-top: #1DB2FF 2px solid;
+    /* background: rgb(9, 95, 234); */
+}
