@@ -25,7 +25,7 @@ SECRET_KEY = '*0mecc(p*w55fz1n$w*jac4s7is2+4i1=-w74-x@af#yo@_n3='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', '192.168.1.32',]
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Call_Logs',    
     # external apps
     'crispy_forms',
+    'crispy_bootstrap5',
     'phone_field',
 ]
 
@@ -89,10 +90,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'phonebookdb',
-        'USER': 'phonebook',
-        'PASSWORD': 'phonebook**',
-        'HOST': 'localhost',
-        'PORT': '',
+        'USER': 'teknik',
+        'PASSWORD': 'G1zt2r',
+        'HOST': '192.168.1.200',
+        'PORT': '5433',
     }
 }
 
@@ -140,4 +141,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# CRISPY_TEMPLATE_PACK = 'uni_form'
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"

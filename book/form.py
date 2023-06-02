@@ -1,6 +1,6 @@
 from crispy_forms.bootstrap import FormActions
 from django.core import validators
-from django.utils.translation import ugettext_lazy as _
+# from django.utils.translation import ugettext_lazy as _
 from django import forms
 from book.models import Contacts
 from django.forms.models import inlineformset_factory

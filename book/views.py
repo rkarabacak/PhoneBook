@@ -28,7 +28,9 @@ class bookCreateView(CreateView):
     form_class = ContactsForm # form_class alanlar için widget uygulamaya yarıyor ve form_class atanırsa fields alanı olmamalı
     template_name = 'contacts/create.html'
    
-    success_url = reverse_lazy('book:index')
+    # success_url = reverse_lazy('book:index')
+    # success_url = reverse('index')
+    success_url = "/"
 
 class bookUpdateView(UpdateView):
     model = Contacts

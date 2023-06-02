@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 from accounts.views import login_view
-from Call_Logs.views import search_view
+# from Call_Logs.views import search_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
