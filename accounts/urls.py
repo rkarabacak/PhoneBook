@@ -1,7 +1,6 @@
-from django.urls import path, include, re_path
+from django.urls import re_path
 from accounts.views import signup_view, login_view, logout_view
-from django.conf.urls.static import static
-from django.conf import settings
+
 
 app_name = "accounts"
 

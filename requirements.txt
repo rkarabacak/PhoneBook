@@ -1,7 +1,8 @@
 django
 django-crispy-forms
+crispy-bootstrap5
 Pillow
 gunicorn
 psycopg2
-django-phone-field
+django-phone-field==1.8.1
 phonenumbers
